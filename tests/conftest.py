@@ -18,16 +18,16 @@ import pytest
 
 from dismount import application
 
-from dismount.db import get_db
-from dismount.db import init_db
+# from dismount.db import get_db
+# from dismount.db import init_db
 
-with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
-    _data_sql = f.read().decode('utf8')
+# with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
+#     _data_sql = f.read().decode('utf8')
 
 
 @pytest.fixture
 def app():
-    db_fd, db_path = tempfile.mkstemp()
+    # db_fd, db_path = tempfile.mkstemp()
 
     # app = create_application({
     #     'TESTING': True,
@@ -39,14 +39,14 @@ def app():
         environment="testing"
     )
 
-    with app.app_context():
-        init_db()
-        get_db().executescript(_data_sql)
+    # with app.app_context():
+    #     init_db()
+    #     get_db().executescript(_data_sql)
 
-    yield app
+    # yield app
 
-    os.close(db_fd)
-    os.unlink(db_path)
+    # os.close(db_fd)
+    # os.unlink(db_path)
 
 
 @pytest.fixture
