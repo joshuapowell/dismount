@@ -11,14 +11,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
+import os
+
 from . import flask
 from . import logger
+
 
 class Application(object):
     """Create class-based Flask application."""
 
     def __init__(self, name, environment="default", ):
-        """Constructor.
+        """Application Constructor.
 
         :param (class) self
             The representation of the instantiated Class Instance
@@ -39,12 +42,13 @@ class Application(object):
 
         """Import configuration based on environment.
         """
-        logger.info('Opening environment configuration file')
-        _config = ('config/%s.json') % (environment)
+        logger.info('Locating environment configuration file')
+
+        config_ = ('%s/config/%s.json') % (os.getcwd(), environment)
 
         """Parse the JSON configuration file content.
         """
         logger.info('Loading environment variables from configuration file')
-        self.app.config.from_json(_config)
+        self.app.config.from_json(config_)
 
         logger.info('Dismount exited with 0.')
