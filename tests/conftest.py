@@ -11,42 +11,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-import os
-import tempfile
 import pytest
 
 from dismount import application
 
-# from dismount.db import get_db
-# from dismount.db import init_db
-
-# with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
-#     _data_sql = f.read().decode('utf8')
-
-
 @pytest.fixture
 def app():
-    # db_fd, db_path = tempfile.mkstemp()
-
-    # app = create_application({
-    #     'TESTING': True,
-    #     'DATABASE': db_path,
-    # })
 
     app = application.Application(
         name=__name__,
         environment="testing",
     )
 
-    # with app.app_context():
-    #     init_db()
-    #     get_db().executescript(_data_sql)
-
-    # yield app
-
-    # os.close(db_fd)
-    # os.unlink(db_path)
-
+    """A stub for when case app_context is required."""
+    with app.app_context():
+        pass
 
 @pytest.fixture
 def client(app):
