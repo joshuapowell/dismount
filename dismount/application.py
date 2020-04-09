@@ -40,7 +40,7 @@ class Application(object):
         """Import configuration based on environment.
         """
         logger.info('Opening environment configuration file')
-        _config = ('../config/%s.json') % (environment)
+        _config = ('config/%s.json') % (environment)
 
         """Parse the JSON configuration file content.
         """
