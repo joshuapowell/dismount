@@ -1,11 +1,22 @@
 
 #!/usr/bin/env python
 
+"""Dismount.
+
+Copyright (c) 2020 The Dismount Authors.
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+"""
+
 import os
 import tempfile
 import pytest
 
-from dismount import create_application
+from dismount import application
 
 from dismount.db import get_db
 from dismount.db import init_db
@@ -18,10 +29,15 @@ with open(os.path.join(os.path.dirname(__file__), 'data.sql'), 'rb') as f:
 def app():
     db_fd, db_path = tempfile.mkstemp()
 
-    app = create_app({
-        'TESTING': True,
-        'DATABASE': db_path,
-    })
+    # app = create_application({
+    #     'TESTING': True,
+    #     'DATABASE': db_path,
+    # })
+
+    app = application.Application(
+        name=__name__,
+        environment="testing"
+    )
 
     with app.app_context():
         init_db()
