@@ -14,11 +14,12 @@ limitations under the License.
 import sys
 
 from . import flask
+from . import logger
 
 class Application(object):
     """Create class-based Flask application."""
 
-    def __init__(self, environment, name, ):
+    def __init__(self, name, environment="default", ):
         """Constructor.
 
         :param (class) self
@@ -41,7 +42,7 @@ class Application(object):
         """Import configuration based on environment.
         """
         logger.info('Opening environment configuration file')
-        _config = ('config/%s.json') % (environment)
+        _config = ('../config/%s.json') % (environment)
 
         """Parse the JSON configuration file content.
         """

@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 
 """Dismount.
@@ -36,7 +35,7 @@ def app():
 
     app = application.Application(
         name=__name__,
-        environment="testing"
+        environment="testing",
     )
 
     # with app.app_context():
