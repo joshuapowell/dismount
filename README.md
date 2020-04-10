@@ -1,5 +1,7 @@
 #  Dismount
 
+<img src="https://travis-ci.org/joshuapowell/dismount.svg?branch=master" title="" alt="Dismount Continuous Integration Status" />
+
 A Python Starter for Flask projects.
 
 🚨Unit Tests with PyTest and Nose
