@@ -9,7 +9,3 @@ os:
 install:
   - pip install flask
   - pip install tox
-script:
-  - tox 
-  on:
-    branch: master
