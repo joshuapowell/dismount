@@ -11,3 +11,5 @@ A Python Starter for Flask projects.
 📚Python Doc Style
 
 🔒Bandit to find common security issues
+
+Default Travis configuration
